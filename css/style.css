@@ -630,3 +630,23 @@ article.widget-translate select {
 #messages {
   background: rgb(245, 166, 35);
 }
+.close-button:hover {
+  cursor: pointer;
+}
+.tooltip {
+  max-width: 600px !important; /* Adjust the maximum width of the tooltip */
+}
+
+.tooltip-inner {
+  font-size: 1.7rem;
+  background-color: #2b376e;
+  max-width: 100% !important;
+}
+.tooltip-anchor {
+  font-weight: 600;
+  border-bottom: 2px dashed gray;
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}

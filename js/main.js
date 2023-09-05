@@ -1,3 +1,6 @@
+const urgentBanner = document.getElementById("urgent-banner")
+const closeBtn = document.getElementById("close")
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     { pageLanguage: "en" },
@@ -67,3 +70,12 @@ $(window).scroll(function () {
 
   $("#progressbar").attr("value", position);
 });
+
+closeBtn.addEventListener('click', ()=> {
+  urgentBanner.style.display="none"
+})
+// ----- Tooltip ----- 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
