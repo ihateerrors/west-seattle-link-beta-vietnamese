@@ -650,3 +650,103 @@ article.widget-translate select {
   margin: 0;
   font-size: inherit;
 }
+.alt-header {
+  background-color: #2b376e;
+  color: #fff;
+  padding: 20px;
+}
+.carousel.pointer-event {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+.carousel {
+    margin-bottom: 40px;
+}
+.carousel {
+  position: relative;
+}
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  display: block;
+}
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: -webkit-transform .6s ease-in-out;
+  transition: transform .6s ease-in-out;
+  transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+}
+.alt-row {
+  display: flex;
+  justify-content: center;
+}
+figure {
+  margin-bottom: 20px;
+}
+figure {
+  max-width: 100%;
+}
+figure {
+  margin: 0;
+}
+#layout-main-container a, #layout-footer a {
+  text-decoration: underline;
+}
+.center {
+  text-align: center;
+}
+.thumbnail {
+  font-size: 14px;
+  display: block;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+}
+.thumbnail {
+  margin-bottom: 0;
+}
+a.thumbnail>img {
+  margin-bottom: 0;
+}
+.carousel [aria-hidden="true"] {
+  display: inline-block;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='333' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+  left: 0;
+  height: 44px;
+  width: 44px;
+  
+}
+.carousel-control-next-icon {
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='333' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+  right: 0;
+  height: 44px;
+  width: 44px;
+}
+#layout-main-container a, #layout-footer a {
+  text-decoration: underline;
+}
+
+.callout-header-color {
+  background-color: #2a7997;
+  font-size: 24px;
+}
+.border-callout {
+  border: 3px solid #2a7997;
+  padding
+}
