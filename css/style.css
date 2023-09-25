@@ -738,6 +738,12 @@ a.thumbnail>img {
   height: 44px;
   width: 44px;
 }
+.carousel-control-next{
+  background: none;
+}
+.carousel-control-prev{
+  background: none;
+}
 #layout-main-container a, #layout-footer a {
   text-decoration: underline;
 }
@@ -748,4 +754,13 @@ a.thumbnail>img {
 }
 .border-callout {
   border: 3px solid #2a7997;
+}
+.carousel-caption {
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.carousel-indicators [data-bs-target]{
+  background-color: #000000;
 }
