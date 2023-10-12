@@ -764,3 +764,7 @@ a.thumbnail>img {
 .carousel-indicators [data-bs-target]{
   background-color: #000000;
 }
+.on-hover:hover {
+  cursor: pointer;
+  text-decoration: underline !important; 
+}
