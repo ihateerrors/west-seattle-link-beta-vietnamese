@@ -769,3 +769,14 @@ a.thumbnail>img {
   text-decoration: underline !important; 
 }
 
+.btn {
+  color: #ffffff;
+  background: #d6078e;
+  border: 2px solid #d6078e;
+  border-radius: 5px;
+}
+.btn:hover {
+  color: #d6078e ;
+  background: #fff !important;
+  border: 2px solid #d6078e;
+}
