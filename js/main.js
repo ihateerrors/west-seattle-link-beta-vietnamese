@@ -1,12 +1,12 @@
 const urgentBanner = document.getElementById("urgent-banner")
 const closeBtn = document.getElementById("close")
 
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    { pageLanguage: "en" },
-    "google_translate_element"
-  );
-}
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement(
+//     { pageLanguage: "en" },
+//     "google_translate_element"
+//   );
+// }
 
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -27,53 +27,84 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-jQuery(window).on("scroll", onScroll);
 
-function onScroll(event) {
-  var scrollPos = jQuery(document).scrollTop();
-  jQuery("#navbarSupportedContent a").each(function () {
-    var currLink = jQuery(this);
-    var refElement = jQuery(currLink.attr("href"));
-    if (
-      refElement.offset().top - 200 <= scrollPos &&
-      refElement.offset().top + refElement.height() > scrollPos
-    ) {
-      jQuery("#menu-center ul li a").removeClass("active");
-      currLink.addClass("active");
-    } else {
-      currLink.removeClass("active");
-    }
+window.addEventListener("scroll", onScroll);
+
+function onScroll(e) {
+  let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+  document.querySelectorAll("#navbarSupportedContent a").forEach(function(linkElem) {
+      let hrefValue = linkElem.getAttribute("href");
+      let hashValue = hrefValue ? hrefValue.split('#')[1] : null; // Extract hash portion
+
+      // Only proceed if the href contains a hash
+      if (hashValue) {
+          let refElement = document.querySelector('#' + hashValue); // Use the hash as a selector
+          if (refElement) {  // Ensure the element exists
+              if (
+                  refElement.getBoundingClientRect().top - 200 <= scrollPos &&
+                  refElement.getBoundingClientRect().top + refElement.offsetHeight > scrollPos
+              ) {
+                  document.querySelectorAll("#menu-center ul li a").forEach(elem => {
+                      elem.classList.remove("active");
+                  });
+                  linkElem.classList.add("active");
+              } else {
+                  linkElem.classList.remove("active");
+              }
+          }
+      }
   });
 }
 
-jQuery(".tab-row a").each(function () {
-  jQuery(this).on("click", function (event) {
+document.querySelectorAll("#navbarSupportedContent a").forEach(function(linkElem) {
+  let hrefValue = linkElem.getAttribute("href");
+
+  // Only process if the href is an ID selector
+  if (hrefValue && hrefValue.startsWith("#")) {
+    let refElement = document.querySelector(hrefValue);
+    if (refElement) {  // Ensure the element exists
+      let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+      if (
+        refElement.getBoundingClientRect().top - 200 <= scrollPos &&
+        refElement.getBoundingClientRect().top + refElement.offsetHeight > scrollPos
+      ) {
+        document.querySelectorAll("#menu-center ul li a").forEach(elem => {
+          elem.classList.remove("active");
+        });
+        linkElem.classList.add("active");
+      } else {
+        linkElem.classList.remove("active");
+      }
+    }
+  }
+});
+
+document.querySelectorAll(".tab-row a").forEach(function(linkElem) {
+  linkElem.addEventListener("click", function(event) {
     event.preventDefault();
-    var currentId = jQuery(this).attr("href");
+    let currentId = linkElem.getAttribute("href");
     setTimeout(() => {
-      jQuery("html, body").animate(
-        {
-          scrollTop: jQuery(currentId).offset().top - 50,
-        },
-        0
-      );
+      let scrollDestination = document.querySelector(currentId).getBoundingClientRect().top + window.scrollY - 50;
+      window.scrollTo({
+        top: scrollDestination,
+        behavior: "auto"  // Use "smooth" for smooth scrolling, or "auto" for instant
+      });
     }, 0);
   });
 });
 
-$(window).scroll(function () {
-  var s = $(window).scrollTop(),
-    d = $(document).height(),
-    c = $(window).height();
-  scrollPercent = (s / (d - c)) * 100;
-  var position = scrollPercent;
+// Replace $(window).scroll(function () from jQuery
+window.addEventListener("scroll", function() {
+  let s = window.scrollY;
+  let d = document.documentElement.scrollHeight;
+  let c = window.innerHeight;
+  let scrollPercent = (s / (d - c)) * 100;
 
-  $("#progressbar").attr("value", position);
+  document.getElementById("progressbar").setAttribute("value", scrollPercent);
 });
 
-closeBtn.addEventListener('click', ()=> {
-  urgentBanner.style.display="none"
-})
+
+
 // ----- Tooltip ----- 
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
